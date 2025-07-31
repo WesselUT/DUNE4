@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2206                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      nut;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-3;
+
+boundaryField
+{
+    inlet
+    {
+        type            cyclic;
+    }
+    outlet
+    {
+        type            cyclic;
+    }	
+    bed
+    {
+    	type 		nutkRoughWallFunction;
+    	Ks		uniform 0.01;
+
+//    	Ks		uniform 0.0035;
+  	Cs		uniform 0.5;
+//        type            nutkWallFunction;
+        value           uniform 0;
+//	type		nutURoughWallFunction;
+//	roughnessHeight		1e-3;
+//	roughnessConstant	0.5;
+//	roughnessFactor		1;
+//	value			uniform 0;
+    }
+    
+    rigidLid
+    {
+    	type		zeroGradient;
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //

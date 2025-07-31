@@ -1,0 +1,8 @@
+//     t      acc    omega   dOmegadt
+(
+    ( 0.0  ((-.002 0 0) (0 0 0) (0 0 0)))
+    (180.0  ((-.002 0 0) (0 0 0) (0 0 0)))
+);
+
+// here: t = time [s] acc = acceleration vector [m/s2] omega = rotation vector [rad/s] dOmegadt = angular acceleration [rad/s2]
+
